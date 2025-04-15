@@ -20,8 +20,9 @@ def log_ip(func):
         print(f"Request received from IP: {user_ip}")
         print(f"X-RapidAPI-Host: {rapidapi_host}")
         secret = request.headers.get("X-RapidAPI-Proxy-Secret")
-        if secret != os.environ.get("RAPIDAPI_SECRET"):
-            abort(403)
+        print(f"X-RapidAPI-Proxy-Secret : {secret}")
+        # if secret != os.environ.get("RAPIDAPI_SECRET"):
+        #     abort(403)
         return func(*args, **kwargs)
     wrapper.__name__ = func.__name__
     return wrapper
