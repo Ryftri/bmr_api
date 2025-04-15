@@ -1,6 +1,7 @@
 # app/routes/bmr_routes.py
 
-from flask import Blueprint, request, jsonify
+import os
+from flask import Blueprint, request, jsonify, abort
 from app.services.bmr_service import (
     calculate_bmr_mifflin,
     calculate_bmr_harris_original,
@@ -18,6 +19,9 @@ def log_ip(func):
         rapidapi_host = request.headers.get('X-RapidAPI-Host', 'Not Available')
         print(f"Request received from IP: {user_ip}")
         print(f"X-RapidAPI-Host: {rapidapi_host}")
+        secret = request.headers.get("X-RapidAPI-Proxy-Secret")
+        if secret != os.environ.get("RAPIDAPI_SECRET"):
+            abort(403)
         return func(*args, **kwargs)
     wrapper.__name__ = func.__name__
     return wrapper
