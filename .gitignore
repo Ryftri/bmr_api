@@ -1,0 +1,52 @@
+# Virtual environment
+venv/
+*.env
+.env/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Editor folders and files
+.vscode/
+.idea/
+*.swp
+
+# Flask instance folder (optional, if using flask instance)
+instance/
+
+# Local configuration files
+config.py
+
+# MacOS Finder
+.DS_Store
+
+# Python egg-info
+*.egg-info/
+.eggs/
+
+# Test, coverage, and cache directories
+.coverage
+.tox/
+.nox/
+*.hypothesis/
+*.pytest_cache/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# pipenv
+Pipfile.lock
+
+# PyInstaller
+#  PyInstaller also creates a build/ folder and a dist/ folder, but you probably don't want to commit those.
+build/
+dist/
+*.spec
+
+# Pytest cache
+.pytest_cache/
+
+# Flask migration files (if using Alembic)
+migrations/
